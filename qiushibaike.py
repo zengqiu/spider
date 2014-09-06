@@ -91,17 +91,6 @@ def insert(date, content, image="", location=""):
         
     conn.close()
 
-def query(date, content):
-    conn = MySQLdb.connect(host=mysql_host, user=mysql_user, passwd=mysql_password, db=mysql_db_name, port=mysql_port, charset="utf8")
-    cur = conn.cursor()
-    sql = "select * from qiushibaike where date=%s and content=%s"
-    params = (date, content)
-    cur.execute(sql, params)
-    result = cur.fetchall()
-    conn.close()
-
-    return result
-
 def download(url, path):
     filename = re.split('/', urlparse.urlparse(url).path)[-1]
     filepath = os.path.join(path, filename)

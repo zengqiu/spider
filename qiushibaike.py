@@ -121,9 +121,8 @@ def run():
         if results:
             for result in results:
                 if result.has_key('image'):
-                    path = image_path
-                    pathname = re.split(' ', result['date'])[0]
-                    newpath = os.path.join(path, pathname)
+                    subpath = re.split(' ', result['date'])[0]
+                    newpath = os.path.join(image_path, subpath)
                     makedir(newpath)
                     filename = download(result['image'], newpath)
                     location = os.path.join(pathname, filename)

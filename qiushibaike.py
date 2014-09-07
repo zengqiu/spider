@@ -95,7 +95,7 @@ def download(url, path):
     filename = re.split('/', urlparse.urlparse(url).path)[-1]
     filepath = os.path.join(path, filename)
     
-    if os.path.isfile(filepath):
+    if not os.path.isfile(filepath):
         urllib.urlretrieve(url, filepath)
 
     return filename

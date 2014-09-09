@@ -13,8 +13,6 @@ A spider for wallbase.cc.
 The spider can down wallpaper to the directory which was named after suitable resolution.
 
 ## **wallhaven.py**
-**(*wallhaven.cc is down.*)**
-
 A spider for wallhaven.cc.
 
 The spider can down wallpaper to the directory which was named after suitable resolution.

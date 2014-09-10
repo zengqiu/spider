@@ -8,6 +8,7 @@ from BeautifulSoup import BeautifulSoup
 import re
 import urlparse
 import os
+import socket
 
 image_path = "/home/mini/wallhaven"
 
@@ -48,7 +49,10 @@ def download(url, path):
     filepath = os.path.join(path, filename)
     
     if not os.path.isfile(filepath):
-        urllib.urlretrieve(url, filepath)
+        try:
+            urllib.urlretrieve(url, filepath)
+        except:
+            print filename + " is not exist"
 
 def makedir(path):
     if not os.path.exists(path):

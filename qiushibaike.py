@@ -10,6 +10,7 @@ import datetime
 import re
 import urlparse
 import os
+import socket
 
 mysql_host = "localhost"
 mysql_port = 3306
@@ -96,7 +97,10 @@ def download(url, path):
     filepath = os.path.join(path, filename)
     
     if not os.path.isfile(filepath):
-        urllib.urlretrieve(url, filepath)
+        try:
+            urllib.urlretrieve(url, filepath)
+        except:
+            print filename + " is not exist"
 
     return filename
 

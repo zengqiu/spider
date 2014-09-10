@@ -125,7 +125,7 @@ def run():
                     newpath = os.path.join(image_path, subpath)
                     makedir(newpath)
                     filename = download(result['image'], newpath)
-                    location = os.path.join(pathname, filename)
+                    location = os.path.join(subpath, filename)
                     insert(result['date'], result['content'], result['image'], location)
                 else:
                     insert(result['date'], result['content'])

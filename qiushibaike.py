@@ -97,10 +97,7 @@ def download(url, path):
     filepath = os.path.join(path, filename)
     
     if not os.path.isfile(filepath):
-        try:
-            urllib.urlretrieve(url, filepath)
-        except:
-            print filename + " is not exist"
+        urllib.urlretrieve(url, filepath)
 
     return filename
 
@@ -128,9 +125,12 @@ def run():
                     subpath = re.split(' ', result['date'])[0]
                     newpath = os.path.join(image_path, subpath)
                     makedir(newpath)
-                    filename = download(result['image'], newpath)
-                    location = os.path.join(subpath, filename)
-                    insert(mysql_table_name, result['date'], result['content'], result['image'], location)
+                    try:
+                        filename = download(result['image'], newpath)
+                        location = os.path.join(subpath, filename)
+                        insert(mysql_table_name, result['date'], result['content'], result['image'], location)
+                    except:
+                        print filename + " is not exist"
                 else:
                     insert(mysql_table_name, result['date'], result['content'])
                 #for key in result:

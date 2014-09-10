@@ -16,3 +16,8 @@ The spider can down wallpaper to the directory which was named after suitable re
 A spider for wallhaven.cc.
 
 The spider can down wallpaper to the directory which was named after suitable resolution.
+
+## **jandan.py**
+A spider for jandan.net.
+
+The spider can down beautiful photos to a directory.

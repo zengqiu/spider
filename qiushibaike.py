@@ -77,10 +77,10 @@ def create_table(table):
 
     conn.close()
 
-def insert(date, content, image="", location=""):
+def insert(table, date, content, image="", location=""):
     conn = MySQLdb.connect(host=mysql_host, user=mysql_user, passwd=mysql_password, db=mysql_db_name, port=mysql_port, charset="utf8")
     cur = conn.cursor()
-    sql = "insert ignore into qiushibaike(date, content, image, location) values(%s, %s, %s, %s)"
+    sql = "insert ignore into " + table + "(date, content, image, location) values(%s, %s, %s, %s)"
     params = (datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S'), content, image, location)
 
     try:
@@ -126,9 +126,9 @@ def run():
                     makedir(newpath)
                     filename = download(result['image'], newpath)
                     location = os.path.join(subpath, filename)
-                    insert(result['date'], result['content'], result['image'], location)
+                    insert(mysql_table_name, result['date'], result['content'], result['image'], location)
                 else:
-                    insert(result['date'], result['content'])
+                    insert(mysql_table_name, result['date'], result['content'])
                 #for key in result:
                     #print "[%s] =" % key, result[key]
                     

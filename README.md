@@ -21,3 +21,9 @@ The spider can down wallpaper to the directory which was named after suitable re
 A spider for jandan.net.
 
 The spider can down beautiful photos to a directory.
+
+
+## **meipai.py**
+A download tool for meipai.com.
+
+`python meipai.py http://www.meipai.com/media/595160009`
